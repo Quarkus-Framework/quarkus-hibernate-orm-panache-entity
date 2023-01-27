@@ -73,7 +73,7 @@ MovieResource {
     public Response deleteById(@PathParam("id") Long id) {
         return Movie.deleteById(id) ?
                 Response.ok().build() :
-                Response.status(Response.Status.NO_CONTENT).build();
+                Response.status(Response.Status.NOT_FOUND).build();
     }
 
 }
