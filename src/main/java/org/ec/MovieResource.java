@@ -58,7 +58,7 @@ MovieResource {
     public Response create(Movie movie) {
         Movie.persist(movie);
         return Optional.of(movie.isPersistent()).map(m -> Response.created(URI.create("/movies" + movie.id)).build())
-                .orElseGet(() -> Response.created(URI.create("/movies" + movie.id)).build());
+                .orElseGet(() -> Response.status(Response.Status.BAD_REQUEST).build());
 //        if(movie.isPersistent()) {
 //            return Response.created(URI.create("/movies" + movie.id)).build();
 //        }
